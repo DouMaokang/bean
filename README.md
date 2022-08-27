@@ -1,1 +1,1 @@
-# bean
+# Bean Programming Language
