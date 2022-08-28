@@ -1,2 +1,6 @@
 .idea
 *.class
+.DS_Store
+cmake-build-debug
+build
+antlr4-cpp-runtime-4.10.1-source
