@@ -13,7 +13,7 @@ int main() {
 	antlr4::CommonTokenStream tokens(&lexer);
 	antlrcpptest::HelloParser parser(&tokens);
 	auto tree = parser.r();
-	std::cout << tree->toStringTree() << std::endl;
+	std::cout << tree->toStringTree(&parser) << std::endl;
 	std::cout << tree->toString() << std::endl;
 	return 0;
 }
