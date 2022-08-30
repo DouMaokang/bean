@@ -16,6 +16,7 @@ public:
 	std::any visitAssign(expr::ExprParser::AssignContext *ctx) override {
 		std::string id = ctx->ID()->getText();
 		int value = std::any_cast<int>(this->visit(ctx->expr()));
+		memory[id] = value;
 		return value;
 	}
 	std::any visitPrintExpr(expr::ExprParser::PrintExprContext *ctx) override {
@@ -25,7 +26,7 @@ public:
 		return 0;
 	}
 	std::any visitParens(expr::ExprParser::ParensContext *ctx) override {
-		return antlr4::tree::AbstractParseTreeVisitor::visitChildren(ctx);
+		return this->visit(ctx->expr());
 	}
 	std::any visitMulDiv(expr::ExprParser::MulDivContext *ctx) override {
 		int left = std::any_cast<int>(this->visit(ctx->expr(0)));
